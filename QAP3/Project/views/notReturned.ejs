@@ -1,0 +1,27 @@
+<html lang="en">
+    <%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="container">
+            <h1>Store 1</h1>
+            <table>
+                <tr>
+                    <th>Rental #</th>
+                    <th>Customer ID</th>
+                    <th>Customer Name</th> 
+                </tr>
+            <% if (notReturned.length > 0) { %>
+                <% notReturned.forEach(notReturned => { %>
+                        <tr>
+                            <th><%= notReturned.rental_id%></th>
+                            <th><%= notReturned.customer_id%></th>
+                            <th><%= notReturned.first_name%> <%= notReturned.last_name%></th> 
+                        </tr>
+                <% }) %>
+            <% } %>
+        </table>
+        </div>
+    </body>
+    <%- include('./partials/footer.ejs') %>
+</html>
